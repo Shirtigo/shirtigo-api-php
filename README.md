@@ -7,7 +7,7 @@ Check out our [REST-API documentation](https://cockpit.shirtigo.de/docs/rest-api
 ```php
 use Shirtigo\ApiClient\ApiClient;
 
-$BASE_URL = "https://testing.cockpit.shirtigo.de/api/";
+$BASE_URL = "https://cockpit.shirtigo.de/api/";
 $API_TOKEN = "YOUR_API_TOKEN";
 
 $client = new ApiClient($API_TOKEN, $BASE_URL);
