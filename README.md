@@ -14,7 +14,7 @@ $client = new ApiClient($API_TOKEN, $BASE_URL);
 ```
 ## Access your shirtigo user data
 ```php
-$data = client->get('user');
+$data = $client->get('user');
 echo "{$data->firstname} {$data->lastname}";
 ```
 
@@ -51,15 +51,15 @@ $designs = $client->get('designs')->data;
 
 ## Add a processing area to a project
 ```php
-$data = {
-      'area': 'front',
-      'position': 'center',
-      'method': 'print',
-      'design': $design->reference,
-      'offset_top': 300,
-      'offset_center': 10,
-      'width': 200,
-}
+$data = [
+      'area' => 'front',
+      'position' => 'center',
+      'method' => 'print',
+      'design' => $design->reference,
+      'offset_top' => 300,
+      'offset_center' => 10,
+      'width' => 200,
+];
 $client->post("projects/{$project->reference}/processings", $data);
 ```
 
@@ -133,9 +133,9 @@ $order_data = [
 ```
 ## Check the current price for a planned order
 ```php
-$prices = $client->post('orders/predict-price', $order_data)
+$prices = $client->post('orders/predict-price', $order_data);
 ```
 ## Post order request
 ```php
-$order = $client->post('orders', $order_data)
+$order = $client->post('orders', $order_data);
 ```
