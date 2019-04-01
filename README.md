@@ -128,7 +128,7 @@ $order_data = [
       'city' => 'Köln',
       'country' => 'Deutschland'
     ],
-    'products' => products,
+    'products' => $products,
 ];
 ```
 ## Check the current price for a planned order
