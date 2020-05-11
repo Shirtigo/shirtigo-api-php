@@ -9,7 +9,7 @@ class ApiClient {
     /** @var Client */
 	protected $client;
 
-    public function __construct(string $api_key, string $base_url="https://cockpit.shirtigo.de/api")
+    public function __construct(string $api_key, string $base_url="https://cockpit.shirtigo.de/api/")
     {
     	// initialize GuzzleHttp client
         $this->client = new Client([
