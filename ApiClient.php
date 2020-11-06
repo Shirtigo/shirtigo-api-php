@@ -11,6 +11,11 @@ class ApiClient {
 
     public function __construct(string $api_key, string $base_url="https://cockpit.shirtigo.de/api/")
     {
+	// Validate base URL
+	if (substr($base_url, -1) !== '/' ) {
+            throw new \InvalidArgumentException('Invalid API base URL. The URL has to end with a backslash.');
+        }
+	    
     	// initialize GuzzleHttp client
         $this->client = new Client([
             'verify' => false,
