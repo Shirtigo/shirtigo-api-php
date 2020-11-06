@@ -59,7 +59,7 @@ class ApiClient {
                 throw new \RuntimeException("{$method} is not valid a valid HTTP verb for the '{$url}' endpoint.");
             } else if ($status == 422) {
         	    $json = json_decode($body, true);
-        	    $message = json_encode($json['errors']);
+        	    $message = isset($json['errors']) ? json_encode($json['errors']) : $json['message'];
         	    throw new \RuntimeException("Input validation failed: {$message}");
             } else {
                 $json = json_decode($body, true);
