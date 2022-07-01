@@ -2,7 +2,7 @@
     "name": "shirtigo/cockpit-api-client",
     "description": "API Client for print-on-demand using the Shirtigo API",
     "type": "library",
-    "homepage": "https://cockpit.shirtigo.de",
+    "homepage": "https://cockpit.shirtigo.com",
     "require": {
         "guzzlehttp/guzzle": "^6.3"
     },
