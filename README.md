@@ -49,52 +49,6 @@ $design = $client->post('designs/url', [
 $designs = $client->get('designs')->data;
 ```
 
-## Add a processing area to a project
-```php
-$data = [
-      'area' => 'front',
-      'position' => 'center',
-      'method' => 'print',
-      'design' => $design->reference,
-      'offset_top' => 300,
-      'offset_center' => 10,
-      'width' => 200,
-];
-$client->post("projects/{$project->reference}/processings", $data);
-```
-
-## Get a list of available base products to process (print)
-```php
-$base_products = $client->get('base-products')->data;
-```
-
-we select the last one for our test
-```php
-$base_product = end($base_products);
-
-$colors = array_map(function($c) { return $c->id; }, $base_product->colors->data);
-$test_sizes = array_map(function($c) { return $c->sizes[0]->id; }, $base_product->colors->data);
-```
-
-## Create a product
-Product creation combines a base product, and a project.
-Let's create a product with our design on the shirt front
-```php
-$data = [
-  'project_id' => $project->reference,
-  'base_product_id' => $base_product->id,
-  'colors' => $colors,
-];
-
-$product = $client->post('products', $data);
-```
-
-## Publish finished project
- Finished projects need to be published before products can be ordered from a project
-```php
-$client->post("projects/{$project->reference}/publish");
-```
-
 ## Order a list of products
 ```php
 $products = [];
